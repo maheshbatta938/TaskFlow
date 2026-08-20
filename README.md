@@ -2,10 +2,6 @@
 
 A full-stack task management application: users sign up, log in, and manage their own tasks with status/priority tracking, server-side filtering and search, and a live analytics dashboard.
 
-## Overview
-
-Built as a technical assessment, optimized for clean architecture and being easy to explain in an interview as much as for working functionality. See [docs/INTERVIEW_GUIDE.md](docs/INTERVIEW_GUIDE.md) for a structured walkthrough of every design decision, and [docs/DECISIONS.md](docs/DECISIONS.md) for the reasoning behind each one.
-
 ## Features
 
 - **Authentication** — signup, login, JWT-based sessions, protected routes, logout, bcrypt password hashing
@@ -138,4 +134,5 @@ Refresh tokens, role-based access, real-time updates, advanced analytics, cachin
 
 ## Author
 
-Praveen K
+Mahesh Batta
+
