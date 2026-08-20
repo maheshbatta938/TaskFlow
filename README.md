@@ -16,9 +16,12 @@ A full-stack task management application where users can create, manage, search,
 * 📄 Pagination and sorting
 * 📊 Task analytics dashboard
 * 🎯 Status and priority tracking
-* 📱 Responsive UI
+* 📱 Fully responsive — desktop, tablet, and mobile
 * 🌙 Dark mode
+* ☀️ Light mode
+* 🔄 Easy theme switching
 * 🔔 Toast notifications
+* ⚡ Loading, empty, and error states
 
 ## 🛠️ Tech Stack
 
@@ -89,13 +92,13 @@ npm install
 ng serve
 ```
 
-The frontend runs on:
+Frontend:
 
 ```text
 http://localhost:4200
 ```
 
-The backend runs on:
+Backend:
 
 ```text
 http://localhost:5000
