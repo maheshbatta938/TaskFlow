@@ -8,3 +8,9 @@
   min-width: 0;
   padding: var(--space-6);
 }
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-bottom: calc(var(--space-6) + 64px);
+  }
+}
