@@ -1,0 +1,8 @@
+<div class="empty-state">
+  <div class="empty-state__icon">
+    <app-icon [name]="icon" [size]="26"></app-icon>
+  </div>
+  <h3>{{ title }}</h3>
+  <p class="text-muted" *ngIf="message">{{ message }}</p>
+  <ng-content></ng-content>
+</div>

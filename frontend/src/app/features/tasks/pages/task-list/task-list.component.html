@@ -1,0 +1,58 @@
+<div class="page-header flex-between flex-wrap gap-3">
+  <h1>My Tasks</h1>
+  <a routerLink="/tasks/new" class="btn btn-primary">
+    <app-icon name="plus" [size]="16"></app-icon>
+    New Task
+  </a>
+</div>
+
+<app-task-filter (filterChange)="onFilterChange($event)"></app-task-filter>
+
+<app-loading *ngIf="loading" message="Loading tasks..."></app-loading>
+
+<app-error-state *ngIf="!loading && error" message="Couldn't load your tasks." (retry)="loadTasks()"></app-error-state>
+
+<ng-container *ngIf="!loading && !error">
+  <app-empty-state
+    *ngIf="tasks.length === 0"
+    icon="clipboard"
+    title="No tasks found"
+    message="Try adjusting your filters or create a new task to get started."
+  ></app-empty-state>
+
+  <ng-container *ngIf="tasks.length > 0">
+    <div class="task-table-view">
+      <app-task-table
+        [tasks]="tasks"
+        [sortBy]="sortBy"
+        [sortOrder]="sortOrder"
+        (sortChange)="onSortChange($event)"
+        (delete)="confirmDelete($event)"
+      ></app-task-table>
+    </div>
+
+    <div class="task-card-view">
+      <app-task-card
+        *ngFor="let task of tasks"
+        [task]="task"
+        (delete)="confirmDelete($event)"
+        (statusChange)="onStatusChange($event)"
+      ></app-task-card>
+    </div>
+
+    <div class="pagination" *ngIf="totalPages > 1">
+      <button type="button" class="btn btn-secondary btn-sm" [disabled]="page === 1" (click)="goToPage(page - 1)">Previous</button>
+      <span class="text-muted">Page {{ page }} of {{ totalPages }} ({{ total }} tasks)</span>
+      <button type="button" class="btn btn-secondary btn-sm" [disabled]="page === totalPages" (click)="goToPage(page + 1)">Next</button>
+    </div>
+  </ng-container>
+</ng-container>
+
+<app-confirm-dialog
+  [open]="!!taskPendingDelete"
+  title="Delete task"
+  [message]="'Delete \'' + (taskPendingDelete?.title || '') + '\'? This cannot be undone.'"
+  confirmLabel="Delete"
+  (confirmed)="deleteConfirmed()"
+  (cancelled)="cancelDelete()"
+></app-confirm-dialog>

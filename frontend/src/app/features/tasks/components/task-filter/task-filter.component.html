@@ -1,0 +1,20 @@
+<form [formGroup]="form" class="task-filter card">
+  <div class="task-filter__search">
+    <app-icon name="search" [size]="16"></app-icon>
+    <input type="text" class="form-control" formControlName="search" placeholder="Search by title or description..." />
+  </div>
+
+  <div class="task-filter__selects">
+    <select class="form-control" formControlName="status">
+      <option value="">All statuses</option>
+      <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+    </select>
+
+    <select class="form-control" formControlName="priority">
+      <option value="">All priorities</option>
+      <option *ngFor="let priority of priorityOptions" [value]="priority">{{ priority }}</option>
+    </select>
+
+    <button type="button" class="btn btn-secondary btn-sm" (click)="reset()">Clear</button>
+  </div>
+</form>

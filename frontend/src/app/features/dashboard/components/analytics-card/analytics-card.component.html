@@ -1,0 +1,9 @@
+<div class="analytics-card card" [ngClass]="'analytics-card--' + variant">
+  <div class="analytics-card__icon">
+    <app-icon [name]="icon" [size]="22"></app-icon>
+  </div>
+  <div>
+    <div class="analytics-card__value">{{ value }}</div>
+    <div class="analytics-card__label text-muted">{{ label }}</div>
+  </div>
+</div>

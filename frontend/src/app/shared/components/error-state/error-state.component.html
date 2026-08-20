@@ -1,0 +1,7 @@
+<div class="error-state">
+  <div class="error-state__icon">
+    <app-icon name="alert-triangle" [size]="24"></app-icon>
+  </div>
+  <p>{{ message }}</p>
+  <button type="button" class="btn btn-secondary btn-sm" (click)="retry.emit()">Try again</button>
+</div>

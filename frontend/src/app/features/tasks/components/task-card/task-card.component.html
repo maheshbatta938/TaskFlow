@@ -1,0 +1,23 @@
+<div class="task-card card">
+  <div class="task-card__header">
+    <a [routerLink]="['/tasks', task.id]" class="task-card__title">{{ task.title }}</a>
+    <app-priority-badge [priority]="task.priority"></app-priority-badge>
+  </div>
+
+  <p class="task-card__description text-muted" *ngIf="task.description">{{ task.description }}</p>
+
+  <div class="task-card__meta">
+    <app-status-badge [status]="task.status"></app-status-badge>
+    <span class="text-muted" *ngIf="task.dueDate" [class.task-card__overdue]="isOverdue()">
+      Due {{ task.dueDate | date: 'mediumDate' }}
+    </span>
+  </div>
+
+  <div class="task-card__actions">
+    <select class="form-control btn-sm" [ngModel]="task.status" (ngModelChange)="onStatusChange($event)">
+      <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+    </select>
+    <a [routerLink]="['/tasks', task.id, 'edit']" class="btn btn-secondary btn-sm">Edit</a>
+    <button type="button" class="btn btn-danger btn-sm" (click)="delete.emit(task)">Delete</button>
+  </div>
+</div>

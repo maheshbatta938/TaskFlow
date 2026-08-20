@@ -1,0 +1,10 @@
+<div class="confirm-backdrop" *ngIf="open" (click)="cancelled.emit()">
+  <div class="confirm-dialog card" (click)="$event.stopPropagation()">
+    <h3>{{ title }}</h3>
+    <p class="text-muted">{{ message }}</p>
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" (click)="cancelled.emit()">{{ cancelLabel }}</button>
+      <button type="button" class="btn btn-danger" (click)="confirmed.emit()">{{ confirmLabel }}</button>
+    </div>
+  </div>
+</div>

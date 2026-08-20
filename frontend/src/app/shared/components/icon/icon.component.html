@@ -1,0 +1,68 @@
+<span class="icon" [style.width.px]="size" [style.height.px]="size" [ngSwitch]="name">
+
+  <svg *ngSwitchCase="'clipboard'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6" y="4" width="12" height="17" rx="2"></rect>
+    <path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"></path>
+    <path d="M9 11h6M9 15h6M9 19h3"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'check-circle'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M8.5 12.5l2.3 2.3L15.5 9.5"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'clock'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M12 7v5l3.5 2"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'trend-up'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 17l6-6 4 4 8-8"></path>
+    <path d="M15 6h6v6"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'alarm'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="13" r="8"></circle>
+    <path d="M12 9v4l2.5 1.5"></path>
+    <path d="M5 3 2.5 5.5M19 3l2.5 2.5"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'sun'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="4.5"></circle>
+    <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'moon'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'alert-triangle'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3.5 21.5 20h-19L12 3.5z"></path>
+    <path d="M12 10v4"></path>
+    <circle cx="12" cy="17.3" r="0.6" fill="currentColor" stroke="none"></circle>
+  </svg>
+
+  <svg *ngSwitchCase="'inbox'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 12h4.5l1.5 3h6l1.5-3H21"></path>
+    <path d="M5.5 5h13l2.5 7v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7z"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'plus'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 5v14M5 12h14"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'search'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="7"></circle>
+    <path d="M21 21l-4.3-4.3"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'arrow-left'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 12H5M11 6l-6 6 6 6"></path>
+  </svg>
+
+  <svg *ngSwitchCase="'logout'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 4H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h9"></path>
+    <path d="M10 12h11m0 0-3.5-3.5M21 12l-3.5 3.5"></path>
+  </svg>
+
+</span>

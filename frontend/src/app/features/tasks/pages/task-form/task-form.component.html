@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h1>{{ isEditMode ? 'Edit Task' : 'Create Task' }}</h1>
+</div>
+
+<app-loading *ngIf="loading" message="Loading task..."></app-loading>
+
+<form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()" class="card task-form" novalidate>
+  <div class="form-group">
+    <label class="form-label" for="title">Title</label>
+    <input id="title" type="text" class="form-control" formControlName="title" [class.is-invalid]="f['title'].invalid && f['title'].touched" placeholder="e.g. Finish project report" />
+    <div class="form-error" *ngIf="f['title'].invalid && f['title'].touched">
+      <span *ngIf="f['title'].errors?.['required']">Title is required.</span>
+      <span *ngIf="f['title'].errors?.['maxlength']">Title must be 200 characters or fewer.</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="description">Description</label>
+    <textarea id="description" class="form-control" formControlName="description" placeholder="Optional details about this task"></textarea>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label" for="status">Status</label>
+      <select id="status" class="form-control" formControlName="status">
+        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="priority">Priority</label>
+      <select id="priority" class="form-control" formControlName="priority">
+        <option *ngFor="let priority of priorityOptions" [value]="priority">{{ priority }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for="dueDate">Due date</label>
+    <input id="dueDate" type="date" class="form-control" formControlName="dueDate" />
+  </div>
+
+  <div class="form-actions">
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    <button type="submit" class="btn btn-primary" [disabled]="submitting">
+      {{ submitting ? 'Saving...' : isEditMode ? 'Save changes' : 'Create task' }}
+    </button>
+  </div>
+</form>

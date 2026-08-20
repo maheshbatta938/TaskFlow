@@ -1,0 +1,40 @@
+<aside class="sidebar">
+  <a class="sidebar__brand" routerLink="/dashboard">
+    <span class="sidebar__logo">
+      <app-icon name="clipboard" [size]="18"></app-icon>
+    </span>
+    <span class="sidebar__brand-text">TaskFlow</span>
+  </a>
+
+  <nav class="sidebar__links">
+    <a routerLink="/dashboard" routerLinkActive="active">
+      <app-icon name="trend-up" [size]="17"></app-icon>
+      <span class="sidebar__link-text">Dashboard</span>
+    </a>
+    <a routerLink="/tasks" routerLinkActive="active">
+      <app-icon name="clipboard" [size]="17"></app-icon>
+      <span class="sidebar__link-text">Tasks</span>
+    </a>
+  </nav>
+
+  <div class="sidebar__spacer"></div>
+
+  <button type="button" class="sidebar__theme-toggle" (click)="toggleTheme()" title="Toggle dark mode">
+    <app-icon [name]="(theme$ | async) === 'dark' ? 'sun' : 'moon'" [size]="17"></app-icon>
+    <span class="sidebar__toggle-text">{{ (theme$ | async) === 'dark' ? 'Light mode' : 'Dark mode' }}</span>
+  </button>
+
+  <ng-container *ngIf="currentUser$ | async as user">
+    <div class="sidebar__user">
+      <span class="sidebar__avatar" [title]="user.name">{{ initials(user) }}</span>
+      <div class="sidebar__user-info">
+        <span class="sidebar__user-name">{{ user.name }}</span>
+        <span class="sidebar__user-email">{{ user.email }}</span>
+      </div>
+    </div>
+    <button type="button" class="btn btn-sm btn-secondary sidebar__logout" (click)="logout()">
+      <app-icon name="logout" [size]="15"></app-icon>
+      Logout
+    </button>
+  </ng-container>
+</aside>

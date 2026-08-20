@@ -1,0 +1,14 @@
+.badge--status-todo {
+  background-color: var(--color-info-bg);
+  color: var(--color-primary);
+}
+
+.badge--status-in_progress {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.badge--status-done {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}

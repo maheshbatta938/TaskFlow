@@ -1,0 +1,36 @@
+.task-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+  align-items: center;
+}
+
+.task-filter__search {
+  position: relative;
+  flex: 1 1 240px;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-faint);
+}
+
+.task-filter__search .icon {
+  position: absolute;
+  left: 14px;
+  pointer-events: none;
+}
+
+.task-filter__search .form-control {
+  padding-left: 40px;
+}
+
+.task-filter__selects {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.task-filter__selects select {
+  min-width: 150px;
+}

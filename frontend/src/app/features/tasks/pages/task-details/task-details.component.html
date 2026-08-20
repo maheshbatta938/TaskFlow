@@ -1,0 +1,57 @@
+<app-loading *ngIf="loading" message="Loading task..."></app-loading>
+
+<app-error-state *ngIf="!loading && error" message="Task not found." (retry)="loadTask()"></app-error-state>
+
+<ng-container *ngIf="!loading && !error && task as t">
+  <div class="page-header flex-between flex-wrap gap-3">
+    <div>
+      <a routerLink="/tasks" class="text-muted back-link">
+        <app-icon name="arrow-left" [size]="14"></app-icon>
+        Back to tasks
+      </a>
+      <h1>{{ t.title }}</h1>
+    </div>
+    <div class="flex gap-2">
+      <button type="button" class="btn btn-secondary" *ngIf="t.status !== taskStatus.DONE" (click)="markComplete()">
+        <app-icon name="check-circle" [size]="15"></app-icon>
+        Mark complete
+      </button>
+      <a [routerLink]="['/tasks', t.id, 'edit']" class="btn btn-secondary">Edit</a>
+      <button type="button" class="btn btn-danger" (click)="confirmingDelete = true">Delete</button>
+    </div>
+  </div>
+
+  <div class="card task-details">
+    <div class="flex gap-3" style="margin-bottom: 16px;">
+      <app-status-badge [status]="t.status"></app-status-badge>
+      <app-priority-badge [priority]="t.priority"></app-priority-badge>
+    </div>
+
+    <p *ngIf="t.description">{{ t.description }}</p>
+    <p class="text-muted" *ngIf="!t.description">No description provided.</p>
+
+    <dl class="task-details__meta">
+      <div>
+        <dt>Due date</dt>
+        <dd>{{ t.dueDate ? (t.dueDate | date: 'mediumDate') : 'No due date' }}</dd>
+      </div>
+      <div>
+        <dt>Created</dt>
+        <dd>{{ t.createdAt | date: 'medium' }}</dd>
+      </div>
+      <div>
+        <dt>Last updated</dt>
+        <dd>{{ t.updatedAt | date: 'medium' }}</dd>
+      </div>
+    </dl>
+  </div>
+</ng-container>
+
+<app-confirm-dialog
+  [open]="confirmingDelete"
+  title="Delete task"
+  message="This will permanently delete the task. This cannot be undone."
+  confirmLabel="Delete"
+  (confirmed)="deleteConfirmed()"
+  (cancelled)="confirmingDelete = false"
+></app-confirm-dialog>

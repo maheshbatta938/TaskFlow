@@ -1,0 +1,21 @@
+<div class="auth-shell">
+  <div class="auth-shell__brand-panel">
+    <div class="auth-shell__brand-mark">
+      <app-icon name="clipboard" [size]="22"></app-icon>
+    </div>
+    <h1>TaskFlow</h1>
+    <p>Organize your work, one task at a time.</p>
+
+    <ul class="auth-shell__points">
+      <li><app-icon name="check-circle" [size]="16"></app-icon> Track status &amp; priority at a glance</li>
+      <li><app-icon name="search" [size]="16"></app-icon> Filter, search and sort instantly</li>
+      <li><app-icon name="trend-up" [size]="16"></app-icon> See your progress on one dashboard</li>
+    </ul>
+  </div>
+
+  <div class="auth-shell__form-panel">
+    <div class="auth-shell__form-card">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.badge--priority-low {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+}
+
+.badge--priority-medium {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.badge--priority-high {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+}

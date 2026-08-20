@@ -1,0 +1,29 @@
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th (click)="onSort('title')">Title <span *ngIf="sortBy === 'title'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span></th>
+        <th>Status</th>
+        <th (click)="onSort('priority')">Priority <span *ngIf="sortBy === 'priority'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span></th>
+        <th (click)="onSort('dueDate')">Due date <span *ngIf="sortBy === 'dueDate'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>
+          <a [routerLink]="['/tasks', task.id]">{{ task.title }}</a>
+        </td>
+        <td><app-status-badge [status]="task.status"></app-status-badge></td>
+        <td><app-priority-badge [priority]="task.priority"></app-priority-badge></td>
+        <td [class.task-card__overdue]="isOverdue(task)">
+          {{ task.dueDate ? (task.dueDate | date: 'mediumDate') : '—' }}
+        </td>
+        <td class="table-actions">
+          <a [routerLink]="['/tasks', task.id, 'edit']" class="btn btn-secondary btn-sm">Edit</a>
+          <button type="button" class="btn btn-danger btn-sm" (click)="delete.emit(task)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
