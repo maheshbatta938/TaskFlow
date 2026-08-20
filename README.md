@@ -2,10 +2,6 @@
 
 A full-stack task management application: users sign up, log in, and manage their own tasks with status/priority tracking, server-side filtering and search, and a live analytics dashboard.
 
-## Overview
-
-Built as a technical assessment, optimized for clean architecture and being easy to explain in an interview as much as for working functionality. See [docs/INTERVIEW_GUIDE.md](docs/INTERVIEW_GUIDE.md) for a structured walkthrough of every design decision, and [docs/DECISIONS.md](docs/DECISIONS.md) for the reasoning behind each one.
-
 ## Features
 
 - **Authentication** — signup, login, JWT-based sessions, protected routes, logout, bcrypt password hashing
@@ -112,21 +108,7 @@ Runs on `http://localhost:4200` — requires the backend to already be running.
 
 Every endpoint, with request/response examples: [docs/API.md](docs/API.md)
 
-## Documentation
 
-| Doc | Covers |
-|---|---|
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System diagrams, request/auth/task/analytics flows |
-| [docs/API.md](docs/API.md) | Full endpoint reference |
-| [docs/DATABASE.md](docs/DATABASE.md) | Schema, relationships, indexes |
-| [docs/AUTHENTICATION.md](docs/AUTHENTICATION.md) | JWT flow, step by step |
-| [docs/FRONTEND.md](docs/FRONTEND.md) | Angular structure, routing, guards, interceptors |
-| [docs/BACKEND.md](docs/BACKEND.md) | Express structure, request lifecycle |
-| [docs/SETUP.md](docs/SETUP.md) | Full install & run guide |
-| [docs/TESTING.md](docs/TESTING.md) | What was actually tested, and how |
-| [docs/DECISIONS.md](docs/DECISIONS.md) | Why each major technical choice was made |
-| [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Real issues hit during development |
-| [docs/INTERVIEW_GUIDE.md](docs/INTERVIEW_GUIDE.md) | Structured explanation guide for this project |
 
 ## Testing
 
@@ -138,4 +120,5 @@ Refresh tokens, role-based access, real-time updates, advanced analytics, cachin
 
 ## Author
 
-Praveen K
+Mahesh Batta
+
