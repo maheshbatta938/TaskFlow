@@ -1,124 +1,142 @@
 # Task Management System
 
-A full-stack task management application: users sign up, log in, and manage their own tasks with status/priority tracking, server-side filtering and search, and a live analytics dashboard.
+A full-stack task management application where users can create, manage, search, filter, and track their tasks with a simple analytics dashboard.
 
-## Features
+## 🚀 Live Demo
 
-- **Authentication** — signup, login, JWT-based sessions, protected routes, logout, bcrypt password hashing
-- **Task CRUD** — create, read, update, delete, and mark-complete, each task scoped to its owner
-- **Filtering & search** — by status, by priority, and free-text search across title/description — all server-side
-- **Pagination & sorting** — server-side, via query parameters
-- **Analytics dashboard** — total/completed/pending counts, completion %, breakdowns by status and priority, overdue count — from one aggregate API call
-- **Responsive, dark-mode UI** — desktop table / mobile card layout, loading/empty/error states, toast notifications, confirm-before-delete
+**https://task-flow-9byi.vercel.app/**
 
-## Tech stack
+## ✨ Features
 
-| Layer | Technology |
-|---|---|
-| Frontend | Angular 16 (NgModules, lazy-loaded feature modules) |
-| Backend | Node.js + Express |
-| Database | MySQL 8 + Sequelize ORM |
-| Auth | JWT (jsonwebtoken) + bcrypt |
-| Validation | express-validator (backend), Angular Reactive Forms (frontend) |
+* 🔐 User signup and login
+* 🔑 JWT authentication
+* 🔒 Protected routes
+* 📝 Create, update, delete and complete tasks
+* 🔎 Search and filter tasks
+* 📄 Pagination and sorting
+* 📊 Task analytics dashboard
+* 🎯 Status and priority tracking
+* 📱 Responsive UI
+* 🌙 Dark mode
+* 🔔 Toast notifications
 
-## Architecture
+## 🛠️ Tech Stack
 
-```mermaid
-flowchart LR
-    UI[Angular UI] --> Service[Angular Services]
-    Service --> API[Express REST API]
-    API --> Auth[Auth Middleware]
-    Auth --> Controller[Controllers]
-    Controller --> ServiceLayer[Services]
-    ServiceLayer --> DB[(MySQL)]
-```
+**Frontend**
 
-Full diagrams and flow explanations: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+* Angular 16
+* TypeScript
+* Angular Reactive Forms
+* Angular Router
 
-## Project structure
+**Backend**
 
-```
+* Node.js
+* Express.js
+* Sequelize ORM
+* JWT
+* bcrypt
+* express-validator
+
+**Database**
+
+* MySQL 8
+
+## 📁 Project Structure
+
+```text
 task-management-system/
 ├── backend/
 │   ├── src/
-│   │   ├── config/       env loading, Sequelize connection
-│   │   ├── constants/     TASK_STATUS, TASK_PRIORITY, HTTP_STATUS
-│   │   ├── models/         User, Task (Sequelize)
-│   │   ├── validators/     express-validator chains
-│   │   ├── middleware/      auth, validation, centralized errors
-│   │   ├── controllers/     thin request handlers
-│   │   ├── services/         business logic + queries
-│   │   ├── routes/            endpoint wiring
-│   │   ├── utils/              ApiError, apiResponse, asyncHandler, jwt
-│   │   ├── app.js
-│   │   └── server.js
-│   ├── .env.example
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── middleware/
+│   │   └── ...
 │   └── package.json
 │
 ├── frontend/
-│   ├── src/app/
-│   │   ├── core/          singleton services, guards, interceptors
-│   │   ├── shared/          reusable presentational components
-│   │   ├── layout/           navbar, main layout, auth layout
-│   │   └── features/
-│   │       ├── auth/           login, signup
-│   │       ├── dashboard/       analytics dashboard
-│   │       └── tasks/            task list/form/details + task components
+│   ├── src/
+│   │   └── app/
+│   │       ├── core/
+│   │       ├── shared/
+│   │       ├── layout/
+│   │       └── features/
 │   └── package.json
 │
-├── docs/                 full documentation set (see below)
-└── README.md             this file
+└── README.md
 ```
 
-## Prerequisites
+## ⚙️ Setup
 
-- Node.js 18.13+ and npm 10+
-- MySQL 8.x running locally (or reachable)
-
-## Installation
-
-```bash
-cd backend && npm install
-cd ../frontend && npm install
-```
-
-## Environment variables
-
-Backend only — copy `backend/.env.example` to `backend/.env` and fill in real values (DB credentials, JWT secret). The frontend uses Angular's `src/environments/environment.ts` for its API base URL instead of a `.env` file. Full detail: [docs/SETUP.md](docs/SETUP.md).
-
-## Running the backend
+### Backend
 
 ```bash
 cd backend
+npm install
 npm run dev
 ```
 
-Runs on `http://localhost:5000`. Health check: `GET /health`.
+Create a `.env` file with your MySQL and JWT configuration.
 
-## Running the frontend
+### Frontend
 
 ```bash
 cd frontend
-npx ng serve --port 4200
+npm install
+ng serve
 ```
 
-Runs on `http://localhost:4200` — requires the backend to already be running.
+The frontend runs on:
 
-## API documentation
+```text
+http://localhost:4200
+```
 
-Every endpoint, with request/response examples: [docs/API.md](docs/API.md)
+The backend runs on:
 
+```text
+http://localhost:5000
+```
 
+## 🏗️ Architecture
 
-## Testing
+```text
+Angular
+   ↓
+Express REST API
+   ↓
+Controllers
+   ↓
+Services
+   ↓
+Sequelize
+   ↓
+MySQL
+```
 
-No automated test suite — the app was verified by running it: `curl` against a real MySQL-backed API, and a scripted headless-browser session covering the full user journey with zero console errors. Full detail, including every case exercised: [docs/TESTING.md](docs/TESTING.md).
+## 🔒 Security
 
-## Future improvements
+* JWT-based authentication
+* bcrypt password hashing
+* Protected API routes
+* User-specific task access
+* Server-side validation
+* Environment variables for sensitive configuration
 
-Refresh tokens, role-based access, real-time updates, advanced analytics, caching, background jobs, audit logging, an automated test suite, database migrations, and server-side token revocation — all explicitly scoped out of this build. Reasoning for each: [docs/INTERVIEW_GUIDE.md](docs/INTERVIEW_GUIDE.md#11-future-improvements).
+## 🔮 Future Improvements
 
-## Author
+* Refresh tokens
+* Role-based access control
+* Real-time updates
+* Caching
+* Background jobs
+* Automated tests
 
-Mahesh Batta
+## 👨‍💻 Author
 
+**Mahesh Batta**
+
+Built with Angular, Node.js, Express, Sequelize, and MySQL.
